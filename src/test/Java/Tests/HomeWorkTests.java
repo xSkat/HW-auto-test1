@@ -6,11 +6,11 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class HomeWorkTests {
+public class HomeWorkTests extends BaseTest {
 
     @Test
     void firststep() {
-        open("https://demoqa.com/automation-practice-form");
+        open("/automation-practice-form");
         $("").val("");
         $("").val("");
         $("").val("");

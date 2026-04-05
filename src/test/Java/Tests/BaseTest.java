@@ -1,13 +1,13 @@
 package Tests;
 
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
-
-import java.lang.module.Configuration;
 
 public class BaseTest {
     @BeforeAll
     static void beforeAll() {
-        Configuration.
-
+        Configuration.browser = "chrome";
+        Configuration.browserSize = "1920x1080";
+        Configuration.baseUrl = "https://demoqa.com";
     }
 }
