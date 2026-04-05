@@ -2,7 +2,7 @@ package Tests;
 
 import org.junit.jupiter.api.Test;
 
-public class HomeWork1 {
+public class homeWork1 {
 
     @Test
     void firstTest() {
