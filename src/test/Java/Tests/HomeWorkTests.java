@@ -23,7 +23,7 @@ public class HomeWorkTests extends BaseTest {
         $(".react-datepicker__day--014").click();
         $("#subjectsInput").val("history").pressEnter();;
         $("#hobbies-checkbox-2").click();
-        $("[]").val("");
+        $("#uploadPicture");
         $("[]").val("");
         $("[id=gender-radio-1]").click();
 
