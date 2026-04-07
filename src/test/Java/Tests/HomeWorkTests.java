@@ -3,6 +3,7 @@ package Tests;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -23,9 +24,14 @@ public class HomeWorkTests extends BaseTest {
         $(".react-datepicker__day--014").click();
         $("#subjectsInput").val("history").pressEnter();;
         $("#hobbies-checkbox-2").click();
-        $("#uploadPicture");
-        $("[]").val("");
-        $("[id=gender-radio-1]").click();
+        $("#uploadPicture").uploadFromClasspath("cat.gif");
+        $("#currentAddress").val("Kaiosdjkn");
+        $("#stateCity-wrapper").click();
+        $(byText("Haryana")).shouldBe(visible).click();
+        $(".react-select-4-input").click();
+        $(byText("Panipat")).shouldBe(visible).click();
+        $("#stateCity-wrapper").$(byText("Haryana")).click();
+        $("#stateCity-wrapper").$(byText("Haryana")).click();
 
         $("").shouldHave(text(""));
         $("").shouldHave(text(""));
