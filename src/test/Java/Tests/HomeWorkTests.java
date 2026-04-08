@@ -2,9 +2,9 @@ package Tests;
 
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Keys;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class HomeWorkTests extends BaseTest {
 
     @Test
-    void firststep() {
+    void firstep() {
         open("/automation-practice-form");
         $("#firstName").val("Tony");
         $("#lastName").val("Kek");
@@ -32,6 +32,8 @@ public class HomeWorkTests extends BaseTest {
         $("#react-select-4-input").click();
         $(byText("Panipat")).shouldBe(visible).click();
         $("#submit").click();
+
+
 
 
 
