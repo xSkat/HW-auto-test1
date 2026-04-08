@@ -1,5 +1,6 @@
 package Tests;
 
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -17,7 +18,7 @@ public class HomeWorkTests extends BaseTest {
         $("#lastName").val("Kek");
         $("#userEmail").val("zdarova@gmail.com");
         $("#gender-radio-1").click();
-        $("#userNumber").val("asdasd");
+        $("#userNumber").val("89823455432");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("May");
         $(".react-datepicker__year-select").selectOption("1968");
@@ -28,10 +29,11 @@ public class HomeWorkTests extends BaseTest {
         $("#currentAddress").val("Kaiosdjkn");
         $("#stateCity-wrapper").click();
         $(byText("Haryana")).shouldBe(visible).click();
-        $(".react-select-4-input").click();
+        $("#react-select-4-input").click();
         $(byText("Panipat")).shouldBe(visible).click();
-        $("#stateCity-wrapper").$(byText("Haryana")).click();
-        $("#stateCity-wrapper").$(byText("Haryana")).click();
+        $("#submit").click();
+
+
 
         $("").shouldHave(text(""));
         $("").shouldHave(text(""));
