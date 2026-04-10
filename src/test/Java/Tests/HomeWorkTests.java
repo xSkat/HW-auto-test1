@@ -1,8 +1,8 @@
 package Tests;
 
-import com.codeborne.selenide.Selenide;
+
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Keys;
+
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -18,7 +18,7 @@ public class HomeWorkTests extends BaseTest {
         $("#lastName").val("Kek");
         $("#userEmail").val("zdarova@gmail.com");
         $("#gender-radio-1").click();
-        $("#userNumber").val("89823455432");
+        $("#userNumber").val("8982345543");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("May");
         $(".react-datepicker__year-select").selectOption("1968");
@@ -33,7 +33,16 @@ public class HomeWorkTests extends BaseTest {
         $(byText("Panipat")).shouldBe(visible).click();
         $("#submit").click();
 
-
+        $(".table-responsive").shouldHave(text("Tony Kek"));
+        $(".table-responsive").shouldHave(text("zdarova@gmail.com"));
+        $(".table-responsive").shouldHave(text("Male"));
+        $(".table-responsive").shouldHave(text("8982345543"));
+        $(".table-responsive").shouldHave(text("14 May,1968"));
+        $(".table-responsive").shouldHave(text("History"));
+        $(".table-responsive").shouldHave(text("Reading"));
+        $(".table-responsive").shouldHave(text("cat.gif"));
+        $(".table-responsive").shouldHave(text("Kaiosdjkn"));
+        $(".table-responsive").shouldHave(text("Haryana Panipat"));
 
 
 
