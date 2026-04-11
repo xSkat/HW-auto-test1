@@ -61,7 +61,17 @@ public class HomeWorkTests extends BaseTest {
         $(".table-responsive").shouldHave(text("Male"));
         $(".table-responsive").shouldHave(text("8982345543"));
 
-
-
     }
+
+
+    @Test
+    void MinimalNegativeTest() {
+        open("/automation-practice-form");
+        $("#firstName").val("Tony");
+        $("#submit").click();
+
+        $("#resultModal").shouldNotBe(visible);
+    }
+
+
 }
