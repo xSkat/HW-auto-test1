@@ -50,6 +50,7 @@ public class HomeWorkTests extends BaseTest {
 
     @Test
             void minimalPositivTest() {
+        open("/automation-practice-form");
         $("#firstName").val("Tony");
         $("#lastName").val("Kek");
         $("#gender-radio-1").click();
