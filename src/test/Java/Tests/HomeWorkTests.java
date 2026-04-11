@@ -23,7 +23,8 @@ public class HomeWorkTests extends BaseTest {
         $(".react-datepicker__month-select").selectOption("May");
         $(".react-datepicker__year-select").selectOption("1968");
         $(".react-datepicker__day--014").click();
-        $("#subjectsInput").val("history").pressEnter();;
+        $("#subjectsInput").val("history").pressEnter();
+        ;
         $("#hobbies-checkbox-2").click();
         $("#uploadPicture").uploadFromClasspath("cat.gif");
         $("#currentAddress").val("Kaiosdjkn");
@@ -44,13 +45,22 @@ public class HomeWorkTests extends BaseTest {
         $(".table-responsive").shouldHave(text("Kaiosdjkn"));
         $(".table-responsive").shouldHave(text("Haryana Panipat"));
 
+    }
 
 
-        $("").shouldHave(text(""));
-        $("").shouldHave(text(""));
-        $("").shouldHave(text(""));
-        $("").shouldHave(text(""));
-        $("").shouldHave(text(""));
+    @Test
+            void minimalPositivTest() {
+        $("#firstName").val("Tony");
+        $("#lastName").val("Kek");
+        $("#gender-radio-1").click();
+        $("#userNumber").val("8982345543");
+        $("#submit").click();
+
+        $(".table-responsive").shouldHave(text("Tony Kek"));
+        $(".table-responsive").shouldHave(text("Male"));
+        $(".table-responsive").shouldHave(text("8982345543"));
+
+
 
     }
 }
