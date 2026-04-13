@@ -24,7 +24,6 @@ public class HomeWorkTests extends BaseTest {
         $(".react-datepicker__year-select").selectOption("1968");
         $(".react-datepicker__day--014").click();
         $("#subjectsInput").val("history").pressEnter();
-        ;
         $("#hobbies-checkbox-2").click();
         $("#uploadPicture").uploadFromClasspath("cat.gif");
         $("#currentAddress").val("Kaiosdjkn");
@@ -104,9 +103,7 @@ public class HomeWorkTests extends BaseTest {
 
 
 
-
-
-    //TextBox
+    //======================================TextBox
     // Тесты на простую форму
     // Positive
     @Test
