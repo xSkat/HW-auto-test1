@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class HomeWorkTests extends BaseTest {
 
     @Test
-    void firstep() {
+    void FullEditTest() {
         open("/automation-practice-form");
         $("#firstName").val("Tony");
         $("#lastName").val("Kek");
@@ -63,14 +63,78 @@ public class HomeWorkTests extends BaseTest {
 
     }
 
-
+    // Заполнить только имя
     @Test
     void MinimalNegativeTest() {
         open("/automation-practice-form");
         $("#firstName").val("Tony");
         $("#submit").click();
 
-        $("#resultModal").shouldNotBe(visible);
+        $(".table-responsive").shouldNotBe(visible);
+    }
+
+
+    // В поле номера вместо цифр буквы
+    @Test
+    void MinimalNegTest1() {
+        open("/automation-practice-form");
+        $("#firstName").val("Tony");
+        $("#lastName").val("Kek");
+        $("#gender-radio-1").click();
+        $("#userNumber").val("sadasd");
+        $("#submit").click();
+
+        $(".table-responsive").shouldNotBe(visible);
+    }
+
+
+    // В поле номера вместо цифр буквы (цвет обводки)
+    @Test
+            void MinimalNegTest2() {
+        open("/automation-practice-form");
+        $("#firstName").val("Tony");
+        $("#lastName").val("Kek");
+        $("#gender-radio-1").click();
+        $("#userNumber").val("sadasd");
+        $("#submit").click();
+
+        $("#userNumber").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+
+    }
+
+
+
+
+
+    //TextBox
+    // Тесты на простую форму
+    // Positive
+    @Test
+    void ezForm() {
+        open("/text-box");
+        $("#userName").val("Tony");
+        $("#userEmail").val("zdarova@gmail.com");
+        $("#currentAddress").val("Gorod728");
+        $("#permanentAddress").val("Bez asdadssad11");
+        $("#submit").click();
+
+        $("#output").shouldHave(text("Tony"));
+        $("#output").shouldHave(text("zdarova@gmail.com"));
+        $("#output").shouldHave(text("Gorod728"));
+        $("#output").shouldHave(text("Bez asdadssad11"));
+
+    }
+
+
+    // Цвет границы при негативном кейсе
+    @Test
+    void negForm() {
+        open("/text-box");
+        $("#userEmail").val("1");
+        $("#submit").click();
+
+        $(".field-error").shouldHave(cssValue("border-color", "rgb(255, 0, 0)"));
+
     }
 
 
