@@ -12,8 +12,14 @@ import static com.codeborne.selenide.Selenide.*;
 public class HomeWorkTests extends BaseTest {
 
     @Test
-    void FullEditTest() {
+    void fullRegFormPracticeTest() {
         open("/automation-practice-form");
+
+        executeJavaScript("""
+        document.getElementById('fixedban')?.remove();
+        document.querySelector('footer')?.remove();
+        """);
+
         $("#firstName").val("Tony");
         $("#lastName").val("Kek");
         $("#userEmail").val("zdarova@gmail.com");
@@ -47,9 +53,16 @@ public class HomeWorkTests extends BaseTest {
     }
 
 
+    // Заполнить Имя, Фамилию, гендер и номер
     @Test
-            void minimalPositivTest() {
+            void minimalPositivPracticeTest() {
         open("/automation-practice-form");
+
+        executeJavaScript("""
+        document.getElementById('fixedban')?.remove();
+        document.querySelector('footer')?.remove();
+        """);
+
         $("#firstName").val("Tony");
         $("#lastName").val("Kek");
         $("#gender-radio-1").click();
@@ -64,8 +77,14 @@ public class HomeWorkTests extends BaseTest {
 
     // Заполнить только имя
     @Test
-    void MinimalNegativeTest() {
+    void minimalNegativePracticeTest() {
         open("/automation-practice-form");
+
+        executeJavaScript("""
+        document.getElementById('fixedban')?.remove();
+        document.querySelector('footer')?.remove();
+        """);
+
         $("#firstName").val("Tony");
         $("#submit").click();
 
@@ -75,8 +94,14 @@ public class HomeWorkTests extends BaseTest {
 
     // В поле номера вместо цифр буквы
     @Test
-    void MinimalNegTest1() {
+    void numberIsLetterPracticeTest() {
         open("/automation-practice-form");
+
+        executeJavaScript("""
+        document.getElementById('fixedban')?.remove();
+        document.querySelector('footer')?.remove();
+        """);
+
         $("#firstName").val("Tony");
         $("#lastName").val("Kek");
         $("#gender-radio-1").click();
@@ -89,8 +114,14 @@ public class HomeWorkTests extends BaseTest {
 
     // В поле номера вместо цифр буквы (цвет обводки)
     @Test
-            void MinimalNegTest2() {
+            void colorErrorFieldPracticeTest() {
         open("/automation-practice-form");
+
+        executeJavaScript("""
+        document.getElementById('fixedban')?.remove();
+        document.querySelector('footer')?.remove();
+        """);
+
         $("#firstName").val("Tony");
         $("#lastName").val("Kek");
         $("#gender-radio-1").click();
@@ -107,8 +138,14 @@ public class HomeWorkTests extends BaseTest {
     // Тесты на простую форму
     // Positive
     @Test
-    void ezForm() {
+    void textBoxForm() {
         open("/text-box");
+
+        executeJavaScript("""
+        document.getElementById('fixedban')?.remove();
+        document.querySelector('footer')?.remove();
+        """);
+
         $("#userName").val("Tony");
         $("#userEmail").val("zdarova@gmail.com");
         $("#currentAddress").val("Gorod728");
@@ -125,8 +162,14 @@ public class HomeWorkTests extends BaseTest {
 
     // Цвет границы при негативном кейсе
     @Test
-    void negForm() {
+    void textBoxColorErrorField() {
         open("/text-box");
+
+        executeJavaScript("""
+        document.getElementById('fixedban')?.remove();
+        document.querySelector('footer')?.remove();
+        """);
+
         $("#userEmail").val("1");
         $("#submit").click();
 
