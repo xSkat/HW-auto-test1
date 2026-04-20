@@ -1,18 +1,15 @@
 package Tests;
 
-
 import org.junit.jupiter.api.Test;
-
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-
 public class HomeWorkTests extends BaseTest {
 
     @Test
-    void fullRegFormPracticeTest() {
+    void fullRegistrationFormPracticeTest() {
         open("/automation-practice-form");
 
         executeJavaScript("""
@@ -49,13 +46,10 @@ public class HomeWorkTests extends BaseTest {
         $(".table-responsive").shouldHave(text("cat.gif"));
         $(".table-responsive").shouldHave(text("Kaiosdjkn"));
         $(".table-responsive").shouldHave(text("Haryana Panipat"));
-
     }
 
-
-    // Заполнить Имя, Фамилию, гендер и номер
     @Test
-            void minimalPositivPracticeTest() {
+    void minimalPositivePracticeTest() {
         open("/automation-practice-form");
 
         executeJavaScript("""
@@ -72,10 +66,8 @@ public class HomeWorkTests extends BaseTest {
         $(".table-responsive").shouldHave(text("Tony Kek"));
         $(".table-responsive").shouldHave(text("Male"));
         $(".table-responsive").shouldHave(text("8982345543"));
-
     }
 
-    // Заполнить только имя
     @Test
     void minimalNegativePracticeTest() {
         open("/automation-practice-form");
@@ -91,10 +83,8 @@ public class HomeWorkTests extends BaseTest {
         $(".table-responsive").shouldNotBe(visible);
     }
 
-
-    // В поле номера вместо цифр буквы
     @Test
-    void numberIsLetterPracticeTest() {
+    void numberIsLettersPracticeTest() {
         open("/automation-practice-form");
 
         executeJavaScript("""
@@ -111,10 +101,8 @@ public class HomeWorkTests extends BaseTest {
         $(".table-responsive").shouldNotBe(visible);
     }
 
-
-    // В поле номера вместо цифр буквы (цвет обводки)
     @Test
-            void colorErrorFieldPracticeTest() {
+    void errorFieldColorPracticeTest() {
         open("/automation-practice-form");
 
         executeJavaScript("""
@@ -129,16 +117,11 @@ public class HomeWorkTests extends BaseTest {
         $("#submit").click();
 
         $("#userNumber").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
-
     }
 
-
-
     //======================================TextBox
-    // Тесты на простую форму
-    // Positive
     @Test
-    void textBoxForm() {
+    void textBoxFormPositiveTest() {
         open("/text-box");
 
         executeJavaScript("""
@@ -156,13 +139,10 @@ public class HomeWorkTests extends BaseTest {
         $("#output").shouldHave(text("zdarova@gmail.com"));
         $("#output").shouldHave(text("Gorod728"));
         $("#output").shouldHave(text("Bez asdadssad11"));
-
     }
 
-
-    // Цвет границы при негативном кейсе
     @Test
-    void textBoxColorErrorField() {
+    void textBoxErrorColorTest() {
         open("/text-box");
 
         executeJavaScript("""
@@ -174,8 +154,5 @@ public class HomeWorkTests extends BaseTest {
         $("#submit").click();
 
         $(".field-error").shouldHave(cssValue("border-color", "rgb(255, 0, 0)"));
-
     }
-
-
 }
