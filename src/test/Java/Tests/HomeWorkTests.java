@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class HomeWorkTests extends BaseTest {
 
     @Test
-    void fullRegistrationFormPracticeTest() {
+    void registrationFormTest() {
         open("/automation-practice-form");
 
         executeJavaScript("""
@@ -49,7 +49,7 @@ public class HomeWorkTests extends BaseTest {
     }
 
     @Test
-    void minimalPositivePracticeTest() {
+    void positiveMinimalTest() {
         open("/automation-practice-form");
 
         executeJavaScript("""
@@ -69,7 +69,7 @@ public class HomeWorkTests extends BaseTest {
     }
 
     @Test
-    void minimalNegativePracticeTest() {
+    void negativeMinimalTest() {
         open("/automation-practice-form");
 
         executeJavaScript("""
@@ -84,7 +84,7 @@ public class HomeWorkTests extends BaseTest {
     }
 
     @Test
-    void numberIsLettersPracticeTest() {
+    void sendUncorrectUserNumberTest() {
         open("/automation-practice-form");
 
         executeJavaScript("""
@@ -102,7 +102,7 @@ public class HomeWorkTests extends BaseTest {
     }
 
     @Test
-    void errorFieldColorPracticeTest() {
+    void checkErrorFieldColorTest() {
         open("/automation-practice-form");
 
         executeJavaScript("""
