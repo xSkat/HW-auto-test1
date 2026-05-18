@@ -21,34 +21,34 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         document.querySelector('footer')?.remove();
         """);
 
-        $("#firstName").val(firstName);
-        $("#lastName").val(lastName);
-        $("#userEmail").val(userEmail);
+        $("#firstName").val(first_Name);
+        $("#lastName").val(last_Name);
+        $("#userEmail").val(user_Email);
         $("#gender-radio-1").click();
-        $("#userNumber").val(userNumber);
+        $("#userNumber").val(user_Number);
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption(month);
         $(".react-datepicker__year-select").selectOption(year);
         $(".react-datepicker__day--014").click();
-        $("#subjectsInput").val(subjectsInput).pressEnter();
+        $("#subjectsInput").val(subjects_Input).pressEnter();
         $("#hobbies-checkbox-2").click();
-        $("#uploadPicture").uploadFromClasspath(uploadPicture);
-        $("#currentAddress").val(Address);
+        $("#uploadPicture").uploadFromClasspath(upload_Picture);
+        $("#currentAddress").val(ADDRESS);
         $("#stateCity-wrapper").click();
         $(byText(country)).shouldBe(visible).click();
         $("#react-select-4-input").click();
         $(byText(city)).shouldBe(visible).click();
         $("#submit").click();
 
-        $(".table-responsive").shouldHave(text(firstName + " " + lastName));
-        $(".table-responsive").shouldHave(text(userEmail));
+        $(".table-responsive").shouldHave(text(first_Name + " " + last_Name));
+        $(".table-responsive").shouldHave(text(user_Email));
         $(".table-responsive").shouldHave(text(sex));
-        $(".table-responsive").shouldHave(text(userNumber));
+        $(".table-responsive").shouldHave(text(user_Number));
         $(".table-responsive").shouldHave(text(day + " " + month + "," + year));
-        $(".table-responsive").shouldHave(text(subjectsInput));
+        $(".table-responsive").shouldHave(text(subjects_Input));
         $(".table-responsive").shouldHave(text(action));
-        $(".table-responsive").shouldHave(text(uploadPicture));
-        $(".table-responsive").shouldHave(text(Address));
+        $(".table-responsive").shouldHave(text(upload_Picture));
+        $(".table-responsive").shouldHave(text(ADDRESS));
         $(".table-responsive").shouldHave(text(country + " " + city));
     }
 
@@ -61,15 +61,15 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         document.querySelector('footer')?.remove();
         """);
 
-        $("#firstName").val(firstName);
-        $("#lastName").val(lastName);
+        $("#firstName").val(first_Name);
+        $("#lastName").val(last_Name);
         $("#gender-radio-1").click();
-        $("#userNumber").val(userNumber);
+        $("#userNumber").val(user_Number);
         $("#submit").click();
 
-        $(".table-responsive").shouldHave(text(firstName + " " + lastName));
+        $(".table-responsive").shouldHave(text(first_Name + " " + last_Name));
         $(".table-responsive").shouldHave(text(sex));
-        $(".table-responsive").shouldHave(text(userNumber));
+        $(".table-responsive").shouldHave(text(user_Number));
     }
 
     @Test
@@ -81,7 +81,7 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         document.querySelector('footer')?.remove();
         """);
 
-        $("#firstName").val(firstName);
+        $("#firstName").val(first_Name);
         $("#submit").click();
 
         $(".table-responsive").shouldNotBe(visible);
@@ -96,10 +96,10 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         document.querySelector('footer')?.remove();
         """);
 
-        $("#firstName").val(firstName);
-        $("#lastName").val(lastName);
+        $("#firstName").val(first_Name);
+        $("#lastName").val(last_Name);
         $("#gender-radio-1").click();
-        $("#userNumber").val(UncorrectUserNumber);
+        $("#userNumber").val(Uncorrect_User_Number);
         $("#submit").click();
 
         $(".table-responsive").shouldNotBe(visible);
@@ -114,14 +114,15 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         document.querySelector('footer')?.remove();
         """);
 
-        $("#firstName").val(firstName);
-        $("#lastName").val(lastName);
+        $("#firstName").val(first_Name);
+        $("#lastName").val(last_Name);
         $("#gender-radio-1").click();
-        $("#userNumber").val(UncorrectUserNumber);
+        $("#userNumber").val(Uncorrect_User_Number);
         $("#submit").click();
 
-        $("#userNumber").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
+        $("#userNumber").shouldHave(cssValue(Error_Border_Color, Uncorrect_User_Number_Rgb_Color));
     }
+
 
 
     //======================================TextBox
@@ -134,16 +135,16 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         document.querySelector('footer')?.remove();
         """);
 
-        $("#userName").val(firstName);
-        $("#userEmail").val(userEmail);
-        $("#currentAddress").val(currentAddress);
-        $("#permanentAddress").val(permanentAddress);
+        $("#userName").val(first_Name);
+        $("#userEmail").val(user_Email);
+        $("#currentAddress").val(current_Address);
+        $("#permanentAddress").val(permanent_Address);
         $("#submit").click();
 
-        $("#output").shouldHave(text(firstName));
-        $("#output").shouldHave(text(userEmail));
-        $("#output").shouldHave(text(currentAddress));
-        $("#output").shouldHave(text(permanentAddress));
+        $("#output").shouldHave(text(first_Name));
+        $("#output").shouldHave(text(user_Email));
+        $("#output").shouldHave(text(current_Address));
+        $("#output").shouldHave(text(permanent_Address));
     }
 
     @Test
@@ -155,9 +156,9 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         document.querySelector('footer')?.remove();
         """);
 
-        $("#userEmail").val(UncorrectUserEmail);
+        $("#userEmail").val(Uncorrect_User_Email);
         $("#submit").click();
 
-        $(".field-error").shouldHave(cssValue(ErrorBorderColor, ErrorRgbColor));
+        $(".field-error").shouldHave(cssValue(Error_Border_Color, Error_Rgb_Color));
     }
 }
