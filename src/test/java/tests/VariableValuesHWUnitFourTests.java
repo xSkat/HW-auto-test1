@@ -46,7 +46,7 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         $(".table-responsive").shouldHave(text(userNumber));
         $(".table-responsive").shouldHave(text(day + " " + month + "," + year));
         $(".table-responsive").shouldHave(text(subjectsInput));
-        $(".table-responsive").shouldHave(text("Reading"));
+        $(".table-responsive").shouldHave(text(action));
         $(".table-responsive").shouldHave(text(uploadPicture));
         $(".table-responsive").shouldHave(text(Address));
         $(".table-responsive").shouldHave(text(country + " " + city));
@@ -99,7 +99,7 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         $("#firstName").val(firstName);
         $("#lastName").val(lastName);
         $("#gender-radio-1").click();
-        $("#userNumber").val("sadasd");
+        $("#userNumber").val(UncorrectUserNumber);
         $("#submit").click();
 
         $(".table-responsive").shouldNotBe(visible);
@@ -117,7 +117,7 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         $("#firstName").val(firstName);
         $("#lastName").val(lastName);
         $("#gender-radio-1").click();
-        $("#userNumber").val("sadasd");
+        $("#userNumber").val(UncorrectUserNumber);
         $("#submit").click();
 
         $("#userNumber").shouldHave(cssValue("border-color", "rgb(220, 53, 69)"));
@@ -155,9 +155,9 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         document.querySelector('footer')?.remove();
         """);
 
-        $("#userEmail").val("1");
+        $("#userEmail").val(UncorrectUserEmail);
         $("#submit").click();
 
-        $(".field-error").shouldHave(cssValue("border-color", "rgb(255, 0, 0)"));
+        $(".field-error").shouldHave(cssValue(ErrorBorderColor, ErrorRgbColor));
     }
 }
