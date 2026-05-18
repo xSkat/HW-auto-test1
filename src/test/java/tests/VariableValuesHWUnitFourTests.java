@@ -120,7 +120,7 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         $("#userNumber").val(Uncorrect_User_Number);
         $("#submit").click();
 
-        $("#userNumber").shouldHave(cssValue(Error_Border_Color, Uncorrect_User_Number_Rgb_Color));
+        $("#userNumber").shouldHave(cssValue(Border_Color, Uncorrect_User_Number_Rgb_Color));
     }
 
 
@@ -159,6 +159,6 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         $("#userEmail").val(Uncorrect_User_Email);
         $("#submit").click();
 
-        $(".field-error").shouldHave(cssValue(Error_Border_Color, Error_Rgb_Color));
+        $(".field-error").shouldHave(cssValue(Border_Color, Error_Rgb_Color));
     }
 }

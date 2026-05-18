@@ -19,7 +19,7 @@ public class TestData {
     public static final String city = "Panipat";
     public static final String country = "Haryana";
     public static final String Uncorrect_User_Number = "sadasd";
-    public static final String Error_Border_Color= "border-color";
+    public static final String Border_Color= "border-color";
     public static final String Error_Rgb_Color= "rgb(255, 0, 0)";
     public static final String Uncorrect_User_Number_Rgb_Color= "rgb(220, 53, 69)";
 
