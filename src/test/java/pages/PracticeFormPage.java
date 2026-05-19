@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import components.CalendarComponents;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -66,11 +67,10 @@ document.querySelector('footer')?.remove();
 
     public PracticeFormPage setBirthDate(String month, String year, String day) {
         dateOfBirthInput.click();
-        $(".react-datepicker__month-select").selectOption(month);
-        $(".react-datepicker__year-select").selectOption(year);
 
-        String ariaLabel = "Choose Tuesday, " + month + " " + day + "th, " + year;
-        $("[aria-label='" + ariaLabel + "']").click();
+        CalendarComponents calendar = new CalendarComponents();
+        calendar.setData(month, year, day);
+
         return this;
     }
 
