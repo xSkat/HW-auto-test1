@@ -18,7 +18,7 @@ public class TestData {
     public static final String BIRTH_DAY = "14";
     public static final String MY_CITY = "Panipat";
     public static final String MY_COUNTRY = "Haryana";
-    public static final String UNCORRECT_USER_NUNBER = "sadasd";
+    public static final String UNCORRECT_USER_NUMBER = "sadasd";
     public static final String BORDER_COLOR= "border-color";
     public static final String ERROR_RGB_COLOR= "rgb(255, 0, 0)";
     public static final String UNCORRECT_USER_NUMBER_RGB_COLOR= "rgb(220, 53, 69)";

@@ -55,8 +55,8 @@ public class TextBoxPage {
     }
 
     public void checkOutputContains(String... expectedTexts) {
-        for (var text : expectedTexts) {
-            output.shouldHave(text(text));
+        for (var expectedText : expectedTexts) {
+            output.shouldHave(text(expectedText));
         }
     }
 

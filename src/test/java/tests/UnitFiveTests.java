@@ -65,7 +65,7 @@ public class UnitFiveTests extends BaseTest {
                 .fillFirstName(FIRST_NAME)
                 .fillLastName(LAST_NAME)
                 .selectGender(GENDER_MALE)
-                .fillPhone(UNCORRECT_USER_NUNBER)
+                .fillPhone(UNCORRECT_USER_NUMBER)
                 .submit()
                 .checkResultTableNotVisible();
     }
@@ -76,7 +76,7 @@ public class UnitFiveTests extends BaseTest {
                 .fillFirstName(FIRST_NAME)
                 .fillLastName(LAST_NAME)
                 .selectGender(GENDER_MALE)
-                .fillPhone(UNCORRECT_USER_NUNBER)
+                .fillPhone(UNCORRECT_USER_NUMBER)
                 .submit()
                 .checkPhoneFieldHasErrorColor(UNCORRECT_USER_NUMBER_RGB_COLOR);
     }

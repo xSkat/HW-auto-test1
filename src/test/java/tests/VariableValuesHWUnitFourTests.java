@@ -99,7 +99,7 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         $("#firstName").val(FIRST_NAME);
         $("#lastName").val(LAST_NAME);
         $("#genterWrapper").$(byText(GENDER_MALE)).click();
-        $("#userNumber").val(UNCORRECT_USER_NUNBER);
+        $("#userNumber").val(UNCORRECT_USER_NUMBER);
         $("#submit").click();
 
         $(".table-responsive").shouldNotBe(visible);
@@ -117,7 +117,7 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         $("#firstName").val(FIRST_NAME);
         $("#lastName").val(LAST_NAME);
         $("#genterWrapper").$(byText(GENDER_MALE)).click();
-        $("#userNumber").val(UNCORRECT_USER_NUNBER);
+        $("#userNumber").val(UNCORRECT_USER_NUMBER);
         $("#submit").click();
 
         $("#userNumber").shouldHave(cssValue(BORDER_COLOR, UNCORRECT_USER_NUMBER_RGB_COLOR));

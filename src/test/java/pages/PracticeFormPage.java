@@ -32,9 +32,9 @@ public class PracticeFormPage {
 
     private void removeBanners() {
         executeJavaScript("""
-                document.getElementById('fixedban')?.remove();
-                document.querySelector('footer')?.remove();
-                """);
+document.getElementById('fixedban')?.remove();
+document.querySelector('footer')?.remove();
+""");
     }
 
     public PracticeFormPage fillFirstName(String value) {
@@ -110,8 +110,8 @@ public class PracticeFormPage {
     }
 
     public void checkResult(String... expectedTexts) {
-        for (var text : expectedTexts) {
-            resultTable.shouldHave(text(text));
+        for (var expectedText : expectedTexts) {
+            resultTable.shouldHave(text(expectedText));
         }
     }
 
