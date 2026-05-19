@@ -20,6 +20,7 @@ public class PracticeFormPage {
     private final SelenideElement uploadPicture = $("#uploadPicture");
     private final SelenideElement currentAddress = $("#currentAddress");
     private final SelenideElement stateCityWrapper = $("#stateCity-wrapper");
+    private final SelenideElement cityWrapper = $("#react-select-4-input");
     private final SelenideElement submitButton = $("#submit");
     private final SelenideElement resultTable = $(".table-responsive");
 
@@ -100,7 +101,7 @@ document.querySelector('footer')?.remove();
     }
 
     public PracticeFormPage selectCity(String city) {
-        $("#react-select-4-input").click();
+        cityWrapper.click();
         $(byText(city)).shouldBe(visible).click();
         return this;
     }
