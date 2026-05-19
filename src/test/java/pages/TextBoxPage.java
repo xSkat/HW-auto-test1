@@ -5,7 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-import static testdata.TestData.BORDER_COLOR;
+
 
 public class TextBoxPage {
 
@@ -61,7 +61,7 @@ public class TextBoxPage {
         }
     }
 
-    public void checkEmailFieldHasErrorColor(String color) {
-        emailErrorField.shouldHave(cssValue(BORDER_COLOR, color));
+    public void checkEmailFieldHasErrorColor(String border, String color) {
+        emailErrorField.shouldHave(cssValue(border, color));
     }
 }

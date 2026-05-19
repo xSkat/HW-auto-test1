@@ -5,7 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static testdata.TestData.BORDER_COLOR;
+
 
 public class PracticeFormPage {
 
@@ -120,7 +120,7 @@ document.querySelector('footer')?.remove();
         resultTable.shouldNotBe(visible);
     }
 
-    public void checkPhoneFieldHasErrorColor(String color) {
-        userNumber.shouldHave(cssValue(BORDER_COLOR, color));
+    public void checkPhoneFieldHasErrorColor(String border, String color) {
+        userNumber.shouldHave(cssValue(border, color));
     }
 }

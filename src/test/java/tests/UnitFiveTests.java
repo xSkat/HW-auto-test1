@@ -78,7 +78,7 @@ public class UnitFiveTests extends BaseTest {
                 .selectGender(GENDER_MALE)
                 .fillPhone(UNCORRECT_USER_NUMBER)
                 .submit()
-                .checkPhoneFieldHasErrorColor(UNCORRECT_USER_NUMBER_RGB_COLOR);
+                .checkPhoneFieldHasErrorColor(BORDER_COLOR, UNCORRECT_USER_NUMBER_RGB_COLOR);
     }
 
     //====================================== TextBox ======================================
@@ -99,6 +99,6 @@ public class UnitFiveTests extends BaseTest {
         textBoxPage.openPage()
                 .fillEmail(UNCORRECT_USER_EMAIL)
                 .submit()
-                .checkEmailFieldHasErrorColor(ERROR_RGB_COLOR);
+                .checkEmailFieldHasErrorColor(BORDER_COLOR, ERROR_RGB_COLOR);
     }
 }
