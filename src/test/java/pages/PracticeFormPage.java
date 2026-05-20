@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import components.CalendarComponents;
+import components.TableResultComponent;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -23,9 +24,9 @@ public class PracticeFormPage {
     private final SelenideElement stateCityWrapper = $("#stateCity-wrapper");
     private final SelenideElement cityWrapper = $("#react-select-4-input");
     private final SelenideElement submitButton = $("#submit");
-    private final SelenideElement resultTable = $(".table-responsive");
 
-
+    private final CalendarComponents calendar = new CalendarComponents();
+    private final TableResultComponent resultTableComp = new TableResultComponent();
 
     public PracticeFormPage openPage() {
         open("/automation-practice-form");
@@ -35,9 +36,9 @@ public class PracticeFormPage {
 
     private void removeBanners() {
         executeJavaScript("""
-document.getElementById('fixedban')?.remove();
-document.querySelector('footer')?.remove();
-""");
+                document.getElementById('fixedban')?.remove();
+                document.querySelector('footer')?.remove();
+                """);
     }
 
     public PracticeFormPage fillFirstName(String value) {
@@ -67,10 +68,7 @@ document.querySelector('footer')?.remove();
 
     public PracticeFormPage setBirthDate(String month, String year, String day) {
         dateOfBirthInput.click();
-
-        CalendarComponents calendar = new CalendarComponents();
         calendar.setData(month, year, day);
-
         return this;
     }
 
@@ -80,7 +78,7 @@ document.querySelector('footer')?.remove();
     }
 
     public PracticeFormPage selectHobby(String hobby) {
-        $(hobbiesWrapper).$(byText(hobby)).click();
+        hobbiesWrapper.$(byText(hobby)).click();
         return this;
     }
 
@@ -112,13 +110,11 @@ document.querySelector('footer')?.remove();
     }
 
     public void checkResult(String... expectedTexts) {
-        for (var expectedText : expectedTexts) {
-            resultTable.shouldHave(text(expectedText));
-        }
+        resultTableComp.shouldContain(expectedTexts);
     }
 
     public void checkResultTableNotVisible() {
-        resultTable.shouldNotBe(visible);
+        resultTableComp.shouldNotBeVisible();
     }
 
     public void checkPhoneFieldHasErrorColor(String border, String color) {
