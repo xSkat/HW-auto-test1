@@ -8,7 +8,8 @@ public class CalendarComponents {
         $(".react-datepicker__month-select").selectOption(month);
         $(".react-datepicker__year-select").selectOption(year);
 
-        String ariaLabel = "Choose Tuesday, " + month + " " + day + "th, " + year;
-        $("[aria-label='" + ariaLabel + "']").click();
+
+        String daySelector = String.format(".react-datepicker__day--%03d", Integer.parseInt(day));
+        $(daySelector).click();
     }
 }
