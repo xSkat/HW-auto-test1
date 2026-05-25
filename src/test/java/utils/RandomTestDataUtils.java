@@ -18,7 +18,7 @@ public class RandomTestDataUtils {
     );
 
     public String getRandomCity(String  country) {
-        List<String> cities = STATE_CITIES.get( country);
+        List<String> cities = STATE_CITIES.get(country);
         if (cities == null || cities.isEmpty()) {
             return  country;
         }

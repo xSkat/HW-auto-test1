@@ -5,6 +5,8 @@ import pages.PracticeFormPage;
 import pages.TextBoxPage;
 import testdata.TestData;
 
+import static testdata.TestData.*;
+
 public class UnitFiveTests extends BaseTest {
 
     private final PracticeFormPage practiceForm = new PracticeFormPage();
@@ -12,14 +14,14 @@ public class UnitFiveTests extends BaseTest {
     private final TestData testData = new TestData();
 
     @Test
-    void registrationFormTest() {
+   public void registrationFormTest() {
         practiceForm.openPage()
                 .fillFirstName(testData.FIRST_NAME)
                 .fillLastName(testData.LAST_NAME)
                 .fillEmail(testData.USER_EMAIL)
                 .selectGender(testData.GENDER_MALE)
                 .fillPhone(testData.USER_NUMBER)
-                .setBirthDate(testData.BIRTH_DAY, testData.BIRTH_MONTH, testData.BIRTH_YEAR)
+                .setBirthDate(testData.BIRTH_MONTH, testData.BIRTH_YEAR, testData.BIRTH_DAY)
                 .fillSubject(testData.SUBJECT_INPUT)
                 .selectHobby(testData.MY_ACTION)
                 .uploadPicture(testData.UPLOAD_PICTURE)
@@ -94,21 +96,21 @@ public class UnitFiveTests extends BaseTest {
         textBoxPage.openPage()
                 .fillUserName(testData.FIRST_NAME)
                 .fillEmail(testData.USER_EMAIL)
-                .fillCurrentAddress(TestData.CURRENT_ADDRESS)
-                .fillPermanentAddress(TestData.PERMANENT_ADDRESS)
+                .fillCurrentAddress(CURRENT_ADDRESS)
+                .fillPermanentAddress(PERMANENT_ADDRESS)
                 .submit()
                 .checkOutputContains(
                         testData.FIRST_NAME,
                         testData.USER_EMAIL,
-                        TestData.CURRENT_ADDRESS,
-                        TestData.PERMANENT_ADDRESS
+                        CURRENT_ADDRESS,
+                        PERMANENT_ADDRESS
                 );
     }
 
     @Test
     void textBoxErrorColorTest() {
         textBoxPage.openPage()
-                .fillEmail(TestData.UNCORRECT_USER_EMAIL)
+                .fillEmail(UNCORRECT_USER_EMAIL)
                 .submit()
                 .checkEmailFieldHasErrorColor(
                         testData.BORDER_COLOR,

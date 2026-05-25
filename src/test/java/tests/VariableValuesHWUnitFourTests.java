@@ -1,6 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
+import testdata.TestData;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Condition.cssValue;
@@ -11,6 +12,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static testdata.TestData.*;
 
 public class VariableValuesHWUnitFourTests extends BaseTest {
+    private final TestData testData = new TestData();
 
     @Test
     void registrationFormTest() {
@@ -21,35 +23,35 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         document.querySelector('footer')?.remove();
         """);
 
-        $("#firstName").val(FIRST_NAME);
-        $("#lastName").val(LAST_NAME);
-        $("#userEmail").val(USER_EMAIL);
-        $("#genterWrapper").$(byText(GENDER_MALE)).click();
-        $("#userNumber").val(USER_NUMBER);
+        $("#firstName").val(testData.FIRST_NAME);
+        $("#lastName").val(testData.LAST_NAME);
+        $("#userEmail").val(testData.USER_EMAIL);
+        $("#genterWrapper").$(byText(testData.GENDER_MALE)).click();
+        $("#userNumber").val(testData.USER_NUMBER);
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption(BIRTH_MONTH);
-        $(".react-datepicker__year-select").selectOption(BIRTH_YEAR);
-        $("[aria-label='Choose Tuesday, " + BIRTH_MONTH + " " + BIRTH_DAY + "th, " + BIRTH_YEAR + "']").click();
-        $("#subjectsInput").val(SUBJECT_INPUT).pressEnter();
-        $("#hobbiesWrapper").$(byText(MY_ACTION)).click();
-        $("#uploadPicture").uploadFromClasspath(UPLOAD_PICTURE);
-        $("#currentAddress").val(MY_ADDRESS);
+        $(".react-datepicker__month-select").selectOption(testData.BIRTH_MONTH);
+        $(".react-datepicker__year-select").selectOption(testData.BIRTH_YEAR);
+        $("[aria-label='Choose Tuesday, " + testData.BIRTH_MONTH + " " + testData.BIRTH_DAY + "th, " + testData.BIRTH_YEAR + "']").click();
+        $("#subjectsInput").val(testData.SUBJECT_INPUT).pressEnter();
+        $("#hobbiesWrapper").$(byText(testData.MY_ACTION)).click();
+        $("#uploadPicture").uploadFromClasspath(testData.UPLOAD_PICTURE);
+        $("#currentAddress").val(testData.MY_ADDRESS);
         $("#stateCity-wrapper").click();
-        $(byText(MY_COUNTRY)).shouldBe(visible).click();
+        $(byText(testData.MY_COUNTRY)).shouldBe(visible).click();
         $("#react-select-4-input").click();
-        $(byText(MY_CITY)).shouldBe(visible).click();
+        $(byText(testData.MY_CITY)).shouldBe(visible).click();
         $("#submit").click();
 
-        $(".table-responsive").shouldHave(text(FIRST_NAME + " " + LAST_NAME));
-        $(".table-responsive").shouldHave(text(USER_EMAIL));
-        $(".table-responsive").shouldHave(text(GENDER_MALE));
-        $(".table-responsive").shouldHave(text(USER_NUMBER));
-        $(".table-responsive").shouldHave(text(BIRTH_DAY + " " + BIRTH_MONTH + "," + BIRTH_YEAR));
-        $(".table-responsive").shouldHave(text(SUBJECT_INPUT));
-        $(".table-responsive").shouldHave(text(MY_ACTION));
-        $(".table-responsive").shouldHave(text(UPLOAD_PICTURE));
-        $(".table-responsive").shouldHave(text(MY_ADDRESS));
-        $(".table-responsive").shouldHave(text(MY_COUNTRY + " " + MY_CITY));
+        $(".table-responsive").shouldHave(text(testData.FIRST_NAME + " " + testData.LAST_NAME));
+        $(".table-responsive").shouldHave(text(testData.USER_EMAIL));
+        $(".table-responsive").shouldHave(text(testData.GENDER_MALE));
+        $(".table-responsive").shouldHave(text(testData.USER_NUMBER));
+        $(".table-responsive").shouldHave(text(testData.BIRTH_DAY + " " + testData.BIRTH_MONTH + "," + testData.BIRTH_YEAR));
+        $(".table-responsive").shouldHave(text(testData.SUBJECT_INPUT));
+        $(".table-responsive").shouldHave(text(testData.MY_ACTION));
+        $(".table-responsive").shouldHave(text(testData.UPLOAD_PICTURE));
+        $(".table-responsive").shouldHave(text(testData.MY_ADDRESS));
+        $(".table-responsive").shouldHave(text(testData.MY_COUNTRY + " " + testData.MY_CITY));
     }
 
     @Test
@@ -61,15 +63,15 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         document.querySelector('footer')?.remove();
         """);
 
-        $("#firstName").val(FIRST_NAME);
-        $("#lastName").val(LAST_NAME);
-        $("#genterWrapper").$(byText(GENDER_MALE)).click();
-        $("#userNumber").val(USER_NUMBER);
+        $("#firstName").val(testData.FIRST_NAME);
+        $("#lastName").val(testData.LAST_NAME);
+        $("#genterWrapper").$(byText(testData.GENDER_MALE)).click();
+        $("#userNumber").val(testData.USER_NUMBER);
         $("#submit").click();
 
-        $(".table-responsive").shouldHave(text(FIRST_NAME + " " + LAST_NAME));
-        $(".table-responsive").shouldHave(text(GENDER_MALE));
-        $(".table-responsive").shouldHave(text(USER_NUMBER));
+        $(".table-responsive").shouldHave(text(testData.FIRST_NAME + " " + testData.LAST_NAME));
+        $(".table-responsive").shouldHave(text(testData.GENDER_MALE));
+        $(".table-responsive").shouldHave(text(testData.USER_NUMBER));
     }
 
     @Test
@@ -81,7 +83,7 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         document.querySelector('footer')?.remove();
         """);
 
-        $("#firstName").val(FIRST_NAME);
+        $("#firstName").val(testData.FIRST_NAME);
         $("#submit").click();
 
         $(".table-responsive").shouldNotBe(visible);
@@ -96,10 +98,10 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         document.querySelector('footer')?.remove();
         """);
 
-        $("#firstName").val(FIRST_NAME);
-        $("#lastName").val(LAST_NAME);
-        $("#genterWrapper").$(byText(GENDER_MALE)).click();
-        $("#userNumber").val(UNCORRECT_USER_NUMBER);
+        $("#firstName").val(testData.FIRST_NAME);
+        $("#lastName").val(testData.LAST_NAME);
+        $("#genterWrapper").$(byText(testData.GENDER_MALE)).click();
+        $("#userNumber").val(testData.UNCORRECT_USER_NUMBER);
         $("#submit").click();
 
         $(".table-responsive").shouldNotBe(visible);
@@ -114,13 +116,13 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         document.querySelector('footer')?.remove();
         """);
 
-        $("#firstName").val(FIRST_NAME);
-        $("#lastName").val(LAST_NAME);
-        $("#genterWrapper").$(byText(GENDER_MALE)).click();
-        $("#userNumber").val(UNCORRECT_USER_NUMBER);
+        $("#firstName").val(testData.FIRST_NAME);
+        $("#lastName").val(testData.LAST_NAME);
+        $("#genterWrapper").$(byText(testData.GENDER_MALE)).click();
+        $("#userNumber").val(testData.UNCORRECT_USER_NUMBER);
         $("#submit").click();
 
-        $("#userNumber").shouldHave(cssValue(BORDER_COLOR, UNCORRECT_USER_NUMBER_RGB_COLOR));
+        $("#userNumber").shouldHave(cssValue(testData.BORDER_COLOR, testData.UNCORRECT_USER_NUMBER_RGB_COLOR));
     }
 
 
@@ -135,14 +137,14 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         document.querySelector('footer')?.remove();
         """);
 
-        $("#userName").val(FIRST_NAME);
-        $("#userEmail").val(USER_EMAIL);
+        $("#userName").val(testData.FIRST_NAME);
+        $("#userEmail").val(testData.USER_EMAIL);
         $("#currentAddress").val(CURRENT_ADDRESS);
         $("#permanentAddress").val(PERMANENT_ADDRESS);
         $("#submit").click();
 
-        $("#output").shouldHave(text(FIRST_NAME));
-        $("#output").shouldHave(text(USER_EMAIL));
+        $("#output").shouldHave(text(testData.FIRST_NAME));
+        $("#output").shouldHave(text(testData.USER_EMAIL));
         $("#output").shouldHave(text(CURRENT_ADDRESS));
         $("#output").shouldHave(text(PERMANENT_ADDRESS));
     }
@@ -159,6 +161,6 @@ public class VariableValuesHWUnitFourTests extends BaseTest {
         $("#userEmail").val(UNCORRECT_USER_EMAIL);
         $("#submit").click();
 
-        $(".field-error").shouldHave(cssValue(BORDER_COLOR, ERROR_RGB_COLOR));
+        $(".field-error").shouldHave(cssValue(testData.BORDER_COLOR, testData.ERROR_RGB_COLOR));
     }
 }

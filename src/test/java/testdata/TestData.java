@@ -2,7 +2,6 @@ package testdata;
 
 
 import com.github.javafaker.Faker;
-
 import utils.RandomTestDataUtils;
 
 
@@ -30,15 +29,12 @@ public class TestData {
     public final String ERROR_RGB_COLOR = "rgb(255, 0, 0)";
     public final String UNCORRECT_USER_NUMBER_RGB_COLOR = "rgb(220, 53, 69)";
 
-    public static final String PERMANENT_ADDRESS = "Bez asdadssad11";
-    public static final String CURRENT_ADDRESS = "Gorod728";
-    public static final String UNCORRECT_USER_EMAIL = "1";
 
     public TestData() {
         this.FIRST_NAME = faker.name().firstName();
         this.LAST_NAME = faker.name().lastName();
         this.USER_EMAIL = faker.internet().emailAddress();
-        this.USER_NUMBER = faker.numerify("9#########");
+        this.USER_NUMBER = faker.phoneNumber().subscriberNumber(10);
         this.BIRTH_MONTH = faker.options().option(
                 "January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"
@@ -56,7 +52,6 @@ public class TestData {
         this.MY_COUNTRY = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
         this.MY_CITY = randomTestDataUtils.getRandomCity(MY_COUNTRY);
     }
-}
 
 
     //======================================TextBox

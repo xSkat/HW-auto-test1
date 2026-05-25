@@ -100,6 +100,7 @@ public class PracticeFormPage {
 
     public PracticeFormPage selectCity(String city) {
         cityWrapper.click();
+        cityWrapper.setValue(city);
         $(byText(city)).shouldBe(visible).click();
         return this;
     }
