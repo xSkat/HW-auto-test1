@@ -3,58 +3,63 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.PracticeFormPage;
 import pages.TextBoxPage;
-import static testdata.TestData.*;
+import testdata.TestData;
 
 public class UnitFiveTests extends BaseTest {
 
     private final PracticeFormPage practiceForm = new PracticeFormPage();
     private final TextBoxPage textBoxPage = new TextBoxPage();
+    private final TestData testData = new TestData();
 
     @Test
     void registrationFormTest() {
         practiceForm.openPage()
-                .fillFirstName(FIRST_NAME)
-                .fillLastName(LAST_NAME)
-                .fillEmail(USER_EMAIL)
-                .selectGender(GENDER_MALE)
-                .fillPhone(USER_NUMBER)
-                .setBirthDate(BIRTH_MONTH, BIRTH_YEAR, BIRTH_DAY)
-                .fillSubject(SUBJECT_INPUT)
-                .selectHobby(MY_ACTION)
-                .uploadPicture(UPLOAD_PICTURE)
-                .fillCurrentAddress(MY_ADDRESS)
-                .selectState(MY_COUNTRY)
-                .selectCity(MY_CITY)
+                .fillFirstName(testData.FIRST_NAME)
+                .fillLastName(testData.LAST_NAME)
+                .fillEmail(testData.USER_EMAIL)
+                .selectGender(testData.GENDER_MALE)
+                .fillPhone(testData.USER_NUMBER)
+                .setBirthDate(testData.BIRTH_DAY, testData.BIRTH_MONTH, testData.BIRTH_YEAR)
+                .fillSubject(testData.SUBJECT_INPUT)
+                .selectHobby(testData.MY_ACTION)
+                .uploadPicture(testData.UPLOAD_PICTURE)
+                .fillCurrentAddress(testData.MY_ADDRESS)
+                .selectState(testData.MY_COUNTRY)
+                .selectCity(testData.MY_CITY)
                 .submit()
                 .checkResult(
-                        FIRST_NAME + " " + LAST_NAME,
-                        USER_EMAIL,
-                        GENDER_MALE,
-                        USER_NUMBER,
-                        BIRTH_DAY + " " + BIRTH_MONTH + "," + BIRTH_YEAR,
-                        SUBJECT_INPUT,
-                        MY_ACTION,
-                        UPLOAD_PICTURE,
-                        MY_ADDRESS,
-                        MY_COUNTRY + " " + MY_CITY
+                        testData.FIRST_NAME + " " + testData.LAST_NAME,
+                        testData.USER_EMAIL,
+                        testData.GENDER_MALE,
+                        testData.USER_NUMBER,
+                        testData.BIRTH_DAY + " " + testData.BIRTH_MONTH + "," + testData.BIRTH_YEAR,
+                        testData.SUBJECT_INPUT,
+                        testData.MY_ACTION,
+                        testData.UPLOAD_PICTURE,
+                        testData.MY_ADDRESS,
+                        testData.MY_COUNTRY + " " + testData.MY_CITY
                 );
     }
 
     @Test
     void positiveMinimalTest() {
         practiceForm.openPage()
-                .fillFirstName(FIRST_NAME)
-                .fillLastName(LAST_NAME)
-                .selectGender(GENDER_MALE)
-                .fillPhone(USER_NUMBER)
+                .fillFirstName(testData.FIRST_NAME)
+                .fillLastName(testData.LAST_NAME)
+                .selectGender(testData.GENDER_MALE)
+                .fillPhone(testData.USER_NUMBER)
                 .submit()
-                .checkResult(FIRST_NAME + " " + LAST_NAME, GENDER_MALE, USER_NUMBER);
+                .checkResult(
+                        testData.FIRST_NAME + " " + testData.LAST_NAME,
+                        testData.GENDER_MALE,
+                        testData.USER_NUMBER
+                );
     }
 
     @Test
     void negativeMinimalTest() {
         practiceForm.openPage()
-                .fillFirstName(FIRST_NAME)
+                .fillFirstName(testData.FIRST_NAME)
                 .submit()
                 .checkResultTableNotVisible();
     }
@@ -62,10 +67,10 @@ public class UnitFiveTests extends BaseTest {
     @Test
     void sendUncorrectUserNumberTest() {
         practiceForm.openPage()
-                .fillFirstName(FIRST_NAME)
-                .fillLastName(LAST_NAME)
-                .selectGender(GENDER_MALE)
-                .fillPhone(UNCORRECT_USER_NUMBER)
+                .fillFirstName(testData.FIRST_NAME)
+                .fillLastName(testData.LAST_NAME)
+                .selectGender(testData.GENDER_MALE)
+                .fillPhone(testData.UNCORRECT_USER_NUMBER)
                 .submit()
                 .checkResultTableNotVisible();
     }
@@ -73,32 +78,41 @@ public class UnitFiveTests extends BaseTest {
     @Test
     void checkErrorFieldColorTest() {
         practiceForm.openPage()
-                .fillFirstName(FIRST_NAME)
-                .fillLastName(LAST_NAME)
-                .selectGender(GENDER_MALE)
-                .fillPhone(UNCORRECT_USER_NUMBER)
+                .fillFirstName(testData.FIRST_NAME)
+                .fillLastName(testData.LAST_NAME)
+                .selectGender(testData.GENDER_MALE)
+                .fillPhone(testData.UNCORRECT_USER_NUMBER)
                 .submit()
-                .checkPhoneFieldHasErrorColor(BORDER_COLOR, UNCORRECT_USER_NUMBER_RGB_COLOR);
+                .checkPhoneFieldHasErrorColor(
+                        testData.BORDER_COLOR,
+                        testData.UNCORRECT_USER_NUMBER_RGB_COLOR
+                );
     }
-
-    //====================================== TextBox ======================================
 
     @Test
     void textBoxFormPositiveTest() {
         textBoxPage.openPage()
-                .fillUserName(FIRST_NAME)
-                .fillEmail(USER_EMAIL)
-                .fillCurrentAddress(CURRENT_ADDRESS)
-                .fillPermanentAddress(PERMANENT_ADDRESS)
+                .fillUserName(testData.FIRST_NAME)
+                .fillEmail(testData.USER_EMAIL)
+                .fillCurrentAddress(TestData.CURRENT_ADDRESS)
+                .fillPermanentAddress(TestData.PERMANENT_ADDRESS)
                 .submit()
-                .checkOutputContains(FIRST_NAME, USER_EMAIL, CURRENT_ADDRESS, PERMANENT_ADDRESS);
+                .checkOutputContains(
+                        testData.FIRST_NAME,
+                        testData.USER_EMAIL,
+                        TestData.CURRENT_ADDRESS,
+                        TestData.PERMANENT_ADDRESS
+                );
     }
 
     @Test
     void textBoxErrorColorTest() {
         textBoxPage.openPage()
-                .fillEmail(UNCORRECT_USER_EMAIL)
+                .fillEmail(TestData.UNCORRECT_USER_EMAIL)
                 .submit()
-                .checkEmailFieldHasErrorColor(BORDER_COLOR, ERROR_RGB_COLOR);
+                .checkEmailFieldHasErrorColor(
+                        testData.BORDER_COLOR,
+                        testData.ERROR_RGB_COLOR
+                );
     }
 }
