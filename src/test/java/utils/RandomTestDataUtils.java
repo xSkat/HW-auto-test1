@@ -12,9 +12,9 @@ public class RandomTestDataUtils {
 
     public static final Map<String, List<String>> STATE_CITIES = Map.of(
             "NCR", List.of("Delhi", "Gurgaon", "Noida"),
-            "Uttar Pradesh", List.of("Agra", "Lucknow", "Meerut"),
+            "Uttar Pradesh", List.of("Agra", "Lucknow", "Merrut"),
             "Haryana", List.of("Karnal", "Panipat"),
-            "Rajasthan", List.of("Jaipur", "Jaisalmer")
+            "Rajasthan", List.of("Jaipur", "Jaiselmer")
     );
 
     public String getRandomCity(String  country) {
